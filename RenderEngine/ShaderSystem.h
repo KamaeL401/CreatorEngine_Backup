@@ -1,13 +1,13 @@
 #pragma once
 #include "Shader.h"
 
-class AssetSystem final : public Singleton<AssetSystem>
+class ShaderResourceSystem final : public Singleton<ShaderResourceSystem>
 {
 private:
 	friend class Singleton;
 
-	AssetSystem() = default;
-	~AssetSystem();
+	ShaderResourceSystem() = default;
+	~ShaderResourceSystem();
 
 public:
 	void Initialize();
@@ -27,4 +27,4 @@ private:
 	void RemoveShaders();
 };
 
-static inline auto& AssetsSystems = AssetSystem::GetInstance();
+static inline auto& ShaderSystem = ShaderResourceSystem::GetInstance();

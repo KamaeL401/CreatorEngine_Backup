@@ -1,27 +1,28 @@
-#include "AssetSystem.h"
+#include "ShaderSystem.h"
 #include "HLSLCompiler.h"
 #include "Banchmark.hpp"
 
-AssetSystem::~AssetSystem()
+ShaderResourceSystem::~ShaderResourceSystem()
 {
 }
 
-void AssetSystem::Initialize()
+void ShaderResourceSystem::Initialize()
 {
 }
 
-void AssetSystem::LoadShaders()
+void ShaderResourceSystem::LoadShaders()
 {
 	try
 	{
 		Banchmark banch;
-		file::path shaderpath = PathFinder::Relative("Shaders\\");
+		file::path shaderpath = PathFinder::RelativeToShader();
+		file::path precompiledpath = PathFinder::RelativeToPrecompiledShader();
 		for (auto& dir : file::recursive_directory_iterator(shaderpath))
 		{
 			if (dir.is_directory() || dir.path().extension() != ".hlsl")
 				continue;
 
-			file::path cso = shaderpath.string() + dir.path().stem().string() + ".cso";
+			file::path cso = precompiledpath.string() + dir.path().stem().string() + ".cso";
 
 			if (file::exists(cso))
 			{
@@ -54,7 +55,7 @@ void AssetSystem::LoadShaders()
 	}
 }
 
-void AssetSystem::AddShaderFromPath(const file::path& filepath)
+void ShaderResourceSystem::AddShaderFromPath(const file::path& filepath)
 {
 	ComPtr<ID3DBlob> blob = HLSLCompiler::LoadFormFile(filepath.string());
 	file::path filename = filepath.filename();
@@ -65,7 +66,7 @@ void AssetSystem::AddShaderFromPath(const file::path& filepath)
 	AddShader(filename.string(), ext, blob);
 }
 
-void AssetSystem::AddShader(const std::string& name, const std::string& ext, const ComPtr<ID3DBlob>& blob)
+void ShaderResourceSystem::AddShader(const std::string& name, const std::string& ext, const ComPtr<ID3DBlob>& blob)
 {
 	if (ext == "vs")
 	{
@@ -109,7 +110,7 @@ void AssetSystem::AddShader(const std::string& name, const std::string& ext, con
 	}
 }
 
-void AssetSystem::RemoveShaders()
+void ShaderResourceSystem::RemoveShaders()
 {
 	VertexShaders.clear();
 	HullShaders.clear();
