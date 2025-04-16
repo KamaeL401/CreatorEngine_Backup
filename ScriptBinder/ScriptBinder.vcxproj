@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="RegisterReflect.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="HotLoadSystem.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -162,14 +163,14 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectPool.h" />
     <ClInclude Include="HotLoadSystem.h" />
-    <ClInclude Include="IComponent.h" />
     <ClInclude Include="IObject.h" />
     <ClInclude Include="IRenderable.h" />
     <ClInclude Include="JobManager.h" />
     <ClInclude Include="LightComponent.h" />
     <ClInclude Include="LightProperty.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="RegisterReflect.h" />
+    <ClInclude Include="RenderableComponents.h" />
     <ClInclude Include="ModuleBehavior.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
