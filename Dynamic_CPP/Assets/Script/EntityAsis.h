@@ -22,7 +22,7 @@ public:
 	virtual void OnDestroy() override  {}
 public:
 	virtual void Interact() override {}
-	virtual void AddItem(EntityItem* item) { m_EntityItems.push_back(item); }
+	void AddItem(EntityItem* item) { m_EntityItems.push_back(item); }
 private:
 	void Inputblabla(Mathf::Vector2 dir);
 private:
