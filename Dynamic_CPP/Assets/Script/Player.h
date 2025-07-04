@@ -10,7 +10,7 @@ public:
 	virtual void Start() override;
 	virtual void FixedUpdate(float fixedTick) override {}
 
-	virtual void OnTriggerEnter(const Collision& collision) override {}
+	virtual void OnTriggerEnter(const Collision& collision) override;
 	virtual void OnTriggerStay(const Collision& collision) override;
 	virtual void OnTriggerExit(const Collision& collision) override {}
 
@@ -32,6 +32,7 @@ public:
 	void SwapWeaponLeft();
 	void SwapWeaponRight();
 	int m_weaponIndex = 0;
+	void Punch();
 
 	std::vector<GameObject*> m_weaponInventory;
 	GameObject* m_curWeapon;
