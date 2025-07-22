@@ -21,4 +21,10 @@ public:
 	virtual void OnDestroy() override  {}
 public:
 	virtual void Interact() {}
+	virtual void Attack(Entity* sender) {}
+
+	[[Property]]
+	int m_currentHP{ 0 };
+	[[Property]]
+	int m_maxHP{ 1 };
 };
