@@ -1,21 +1,21 @@
-m_name: WeaponWand_Prefab
+m_name: WeaponWand
 m_isEnabled: true
-m_instanceID: 2477474852
-m_fileGuid: daa1d7b2-8722-5501-917a-6e205a13a46f
+m_instanceID: 4152356142
+m_fileGuid: 00000000-0000-0000-0000-000000000000
 PrefabNode:
   - GameObject: 2166264123
     m_name: WeaponWand
     m_isEnabled: true
-    m_instanceID: 2904362253
+    m_instanceID: 254366008
     m_transform:
       position: {x: 0, y: 0, z: 0, w: 1}
       rotation: {x: -0, y: 0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1, w: 0}
       m_parentID: 0
-    m_index: 1
+    m_index: 3
     m_parentIndex: 0
     m_rootIndex: 0
-    m_childrenIndices: [2]
+    m_childrenIndices: [4]
     m_prefabFileGuid: daa1d7b2-8722-5501-917a-6e205a13a46f
     m_attachedSoketID: 0
     m_collisionType: 1
@@ -25,7 +25,7 @@ PrefabNode:
     m_layer: Default
     m_components:
       - ModuleBehavior: 1399118904
-        itemtype: 1
+        itemType: 3
         itemAckDmg: 1
         itemAckSpd: 1
         itemAckRange: 2
@@ -44,24 +44,24 @@ PrefabNode:
         durUseBuf: 100
         m_name: Weapon
         m_isEnabled: true
-        m_instanceID: 358716569
+        m_instanceID: 1258351226
         m_FileID: 00000000-0000-0000-0000-000000000000
         m_scriptGuid: 02dd75e2-3ca5-5cd1-905f-62f17f32462d
     children:
       - GameObject: 2166264123
         m_name: Weapon_wand
         m_isEnabled: true
-        m_instanceID: 2316685850
+        m_instanceID: 117465477
         m_transform:
           position: {x: 0, y: 0, z: 0, w: 1}
-          rotation: {x: 0, y: 0, z: 0, w: 1}
-          scale: {x: 1, y: 1, z: 1, w: 1}
-          m_parentID: 1
-        m_index: 2
-        m_parentIndex: 1
+          rotation: {x: -0, y: 0, z: -0, w: 1}
+          scale: {x: 1, y: 1, z: 1, w: 0}
+          m_parentID: 3
+        m_index: 4
+        m_parentIndex: 3
         m_rootIndex: 0
         m_childrenIndices: ~
-        m_prefabFileGuid: daa1d7b2-8722-5501-917a-6e205a13a46f
+        m_prefabFileGuid: 00000000-0000-0000-0000-000000000000
         m_attachedSoketID: 0
         m_collisionType: 1
         m_isStatic: false
@@ -72,7 +72,7 @@ PrefabNode:
           - MeshRenderer: 659998325
             m_name: MeshRenderer
             m_isEnabled: true
-            m_instanceID: 1138214600
+            m_instanceID: 1964862181
             m_FileID: 00000000-0000-0000-0000-000000000000
             m_Material:
               m_name: Material.001
