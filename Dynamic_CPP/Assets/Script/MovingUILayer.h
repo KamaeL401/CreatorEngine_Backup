@@ -36,5 +36,7 @@ private:
 	float m_elapsedTime{};
 	bool m_active{};
 
+	Mathf::Vector2 pos{};
+
 	class RectTransformComponent* m_movingTarget{ nullptr };
 };
