@@ -1,13 +1,13 @@
 {
     "currentTime": 0.0,
-    "duration": 1.0,
+    "duration": -1.0,
     "isPaused": false,
     "isPlaying": false,
-    "loop": false,
+    "loop": true,
     "name": "v1",
     "particleSystems": [
         {
-            "isRunning": true,
+            "isRunning": false,
             "maxParticles": 5,
             "modules": [
                 {
@@ -103,7 +103,7 @@
                         },
                         "impulses": [],
                         "movementParams": {
-                            "currentTime": 40.054283142089844,
+                            "currentTime": 5.893215656280518,
                             "easingEnabled": false,
                             "easingType": 0,
                             "gravityStrength": 9.800000190734863,
@@ -199,7 +199,7 @@
                     "useEasing": false
                 }
             ],
-            "name": "NewEmitter",
+            "name": "Smoke",
             "particleDataType": 1,
             "position": {
                 "x": 0.0,
@@ -298,7 +298,7 @@
             }
         },
         {
-            "isRunning": true,
+            "isRunning": false,
             "maxParticles": 10,
             "modules": [
                 {
@@ -364,7 +364,7 @@
                         },
                         "impulses": [],
                         "movementParams": {
-                            "currentTime": 40.054283142089844,
+                            "currentTime": 0.0,
                             "easingEnabled": false,
                             "easingType": 0,
                             "gravityStrength": 9.800000190734863,
@@ -599,7 +599,7 @@
             }
         },
         {
-            "isRunning": true,
+            "isRunning": false,
             "maxParticles": 1,
             "modules": [
                 {
@@ -785,7 +785,7 @@
             }
         },
         {
-            "isRunning": true,
+            "isRunning": false,
             "maxParticles": 1,
             "modules": [
                 {
@@ -1047,7 +1047,7 @@
             }
         },
         {
-            "isRunning": true,
+            "isRunning": false,
             "maxParticles": 5,
             "modules": [
                 {
