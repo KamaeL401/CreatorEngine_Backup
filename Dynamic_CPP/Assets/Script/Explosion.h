@@ -3,6 +3,7 @@
 #include "ModuleBehavior.h"
 #include "Explosion.generated.h"
 
+class EffectComponent;
 class Player;
 class Explosion : public ModuleBehavior
 {
@@ -24,10 +25,10 @@ public:
 	virtual void OnDisable() override  {}
 	virtual void OnDestroy() override  {}
 
-	void Init(Player* _owner);
+	void Initialize(Player* _owner);
 	Player* m_ownerPlayer = nullptr;
 	bool endAttack = false;
-
+	EffectComponent* m_effect;
 	
 	[[Property]]
 	float explosionRadius = 3.0f; //범위공격 반경
