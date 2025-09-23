@@ -90,9 +90,8 @@ public:
 	void RotateToTarget(); //타겟 바라보기
 
 	//근접 공격 방식 - 박스 공격
-	//
 	void AttackBoxOn(); //공격 박스 활성화
-	//
+	
 	void AttackBoxOff(); //공격 박스 비활성화
 
 	void SendDamage(Entity* sender, int damage) override; //근접 공격시 데미지 전달
