@@ -51,15 +51,33 @@ float4 main(PixelInput input) : SV_TARGET
     float2 frameOffset = float2(frameX * frameSize.x, frameY * frameSize.y);
     float2 animatedUV = frameOffset + (input.texCoord * frameSize);
     
-    // 기본 텍스처 색상 가져오기 (애니메이션된 UV 사용)
-    float4 texColor = gTexture.Sample(linearSampler, animatedUV);
-
-    float intensity = dot(texColor.rgb, float3(0.299, 0.587, 0.114)); // 텍스처의 밝기 계산
-    float3 finalColor = input.color.rgb * intensity;
-    float finalAlpha = texColor.a * input.alpha * input.color.a;
+    // 마스크 텍스처에서 마스크값 가져오기
+    float4 temp = gTexture.Sample(linearSampler, animatedUV);
+    float maskValue = temp.r;
+    float dissolve = temp.g;
+    float emissive = temp.b;
+    float alpha = temp.a;
     
-    // 텍스처의 알파값이 너무 낮으면 픽셀 폐기
-    clip(finalAlpha - 0.1);
+    // 마스크값이 너무 낮으면 픽셀 폐기
+    if (maskValue < 0.01f)
+        discard;
+    
+    // 파티클 수명에 따른 디졸브 임계값 계산
+    float dissolveThreshold = saturate(input.particleAge);
+    
+    // 디졸브 효과: 마스크값이 임계값보다 낮으면 픽셀 폐기
+    if (dissolve < dissolveThreshold || alpha < 0.1)
+        discard;
+    
+    // 입력 색상을 기본색으로 사용하고 마스크로 강도 조절
+    float3 baseColor = input.color.rgb * maskValue;
+    //float3 emissiveColor = float3(1.4f, 0.7f, 0.37f) * alpha;
+
+    // 에미시브 값에 따라 기본 색상과 에미시브 색상을 블렌딩
+    float3 finalColor = baseColor;
+    
+    // 최종 알파값 계산 (마스크값 × 입력 알파)
+    float finalAlpha = input.color.a * alpha;
     
     return float4(finalColor, finalAlpha);
 }
