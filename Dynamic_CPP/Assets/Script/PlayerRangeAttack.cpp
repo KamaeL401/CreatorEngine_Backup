@@ -35,7 +35,7 @@ void PlayerRangeAttack::Enter()
 		auto controller = m_player->player->GetComponent<CharacterControllerComponent>();
 		controller->Move({ 0 ,0 });
 		//m_player->m_animator->SetUseLayer(1, false);
-		m_player->RangeAttack();
+		//m_player->RangeAttack();
 	}
 }
 
@@ -47,14 +47,9 @@ void PlayerRangeAttack::Exit()
 {
 	if (m_player)
 	{
-		if (!m_player->m_curWeapon->IsBasic())
-		{
-			m_player->m_curWeapon->DecreaseDur(m_player->isChargeAttack);
-			m_player->m_UpdateDurabilityEvent.Broadcast(m_player->m_curWeapon, m_player->m_weaponIndex);
-		}
 		m_player->ChangeState("Idle");
-		m_player->isAttacking = false;
-		m_player->sucessAttack = true;
+		//m_player->isAttacking = false;
+		//m_player->sucessAttack = true;
 
 	}
 }
