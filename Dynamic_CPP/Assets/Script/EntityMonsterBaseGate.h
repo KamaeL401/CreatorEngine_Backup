@@ -4,6 +4,8 @@
 #include "Entity.h"
 #include "EntityMonsterBaseGate.generated.h"
 //몬스터기지 입구,출구역할
+
+class EffectComponent;
 class EntityMonsterBaseGate : public Entity
 {
 public:
@@ -27,6 +29,8 @@ public:
 	void SendDamage(Entity* sender, int damage, HitInfo = HitInfo{}) override;
 
 
+	bool invincibility = false;
+	EffectComponent* m_barrierEffet;
 private:
 	[[Property]]
 	int maxHP = 200;
