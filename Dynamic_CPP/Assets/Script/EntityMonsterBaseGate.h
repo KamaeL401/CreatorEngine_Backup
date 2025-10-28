@@ -27,6 +27,7 @@ public:
 	void SendDamage(Entity* sender, int damage, HitInfo = HitInfo{}) override;
 
 
+	bool invincibility = false;
 private:
 	[[Property]]
 	int maxHP = 200;
