@@ -5,6 +5,7 @@
 #include "EntityResource.generated.h"
 class CriticalMark;
 class EffectComponent;
+class TutorialUI;
 class EntityResource : public Entity
 {
 public:
@@ -35,6 +36,7 @@ public:
 	void PlayHitSound();
 	void PlayDestorySound();
 
+	TutorialUI* m_tutorialUi = nullptr;
 private:
 	EffectComponent* m_effect = nullptr;
 	CriticalMark* m_criticalMark;
