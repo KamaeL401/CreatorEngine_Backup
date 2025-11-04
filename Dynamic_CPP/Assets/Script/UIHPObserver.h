@@ -25,6 +25,7 @@ public:
 
 private:
 	class ImageComponent* m_image = nullptr;
+	class GameManager* GM = nullptr;
 
 	int m_currentHP{};
 	int m_maxHP{};
