@@ -32,4 +32,5 @@ private:
 	Mathf::Vector3 stagingPositions[2];
 	class LetterboxController* m_letterboxController = nullptr;
 	bool m_actionEnd = false;
+	Mathf::Vector3 stagingForward[2];
 };
