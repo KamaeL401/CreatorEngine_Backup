@@ -21,13 +21,15 @@ TextureCube EnvMap : register(t6);
 TextureCube PrefilteredSpecMap : register(t7);
 Texture2D BrdfLUT : register(t8);
 
+Texture2D prevDepthTexture : register(t14);
 Texture2D baseColorTexture : register(t15);
 Texture2D baseNormalTexture : register(t16);
 cbuffer MatrixBuffer : register(b12)
 {
     matrix viewMat;
     matrix projMat;
-    float dadd;
+    matrix invviewMat;
+    matrix invprojMat;
 };
 
 
@@ -211,8 +213,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
         return float4(colour, albedo.a);
     }
     else
-    {
-    
+    { 
     //float2 screenUV = IN.position.xy / IN.position.w;
     //screenUV = screenUV * 0.5 + 0.5;
     //float3 baseNormal = baseNormalTexture.Sample(PointSampler, screenUV).xyz * 2 - 1;
@@ -220,8 +221,8 @@ float4 main(PixelShaderInput IN) : SV_TARGET
         float3 refractionColor;
     
         refractionColor.r = Refraction(IN.wPosition.xyz, view, surf.N, 1 / gIOR).r;
-        refractionColor.g = Refraction(IN.wPosition.xyz, view, surf.N, 1 / (gIOR + dadd)).g;
-        refractionColor.b = Refraction(IN.wPosition.xyz, view, surf.N, 1 / (gIOR + dadd * 2)).b;
+        refractionColor.g = Refraction(IN.wPosition.xyz, view, surf.N, 1 / (gIOR + 0.021)).g;
+        refractionColor.b = Refraction(IN.wPosition.xyz, view, surf.N, 1 / (gIOR + 0.021 * 2)).b;
         
         float3 transmissionColor = refractionColor * albedo.rgb;
         
